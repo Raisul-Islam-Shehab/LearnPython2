@@ -1,0 +1,39 @@
+name: Caller Workflow Demo 
+run-name: ${{ github.actor }} is testing out Github Actions
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, closed]
+  push:
+    branches:
+      - main
+
+jobs:
+    calling-reuse-workflow-style:
+        if: github.event_name == 'push'
+        uses: Raisul-Islam-Shehab/LearnPython/.github/workflows/resuse-workflow-style.yml@main
+        with:
+            caller-name: Raisul Islam Shehab
+            src-directory: src
+            dependency-file: requirements.txt
+    
+    calling-reuse-workflow-test:
+        if: github.event_name == 'pull_request'
+        uses: Raisul-Islam-Shehab/LearnPython/.github/workflows/reuse-workflow-test.yml@main
+        with:
+            caller-name: Raisul Islam Shehab
+            dependency-file: requirements.txt
+            src-directory: src
+            src-script: src/my_script.py
+            src-test: src/test_script.py
+
+    calling-reuse-workflow-runAll:
+        if: github.event_name == 'pull_request'
+        uses: Raisul-Islam-Shehab/LearnPython/.github/workflows/reuse-workflow-runAll.yml@main
+        with:
+            caller-name: Raisul Islam Shehab
+            src-directory: src
+            dependency-file: requirements.txt
+            src-script: src/my_script.py
+            src-test: src/test_script.py

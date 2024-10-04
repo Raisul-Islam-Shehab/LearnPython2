@@ -15,7 +15,7 @@ def test_get_open_issues():
     latestIssue = response[0]
     assert (
         latestIssue["repository_url"]
-        == "https://api.github.com/repos/Raisul-Islam-Shehab/LearnPython"
+        == "https://api.github.com/repos/Raisul-Islam-Shehab/LearnPython2"
     )
 
 

@@ -112,7 +112,7 @@ def print_pull_requests_details():
 
 
 # print_open_issues_details()
-print_latest_commit()
+# print_latest_commit()
 # print_pull_requests_details()
 
-get_latest_commit()
+# get_latest_commit()
